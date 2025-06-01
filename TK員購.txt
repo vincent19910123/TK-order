@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>客家人訂貨網站</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    label, select, input {
+      margin: 10px 0;
+      display: block;
+    }
+    .summary {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>客家人訂貨網站</h1>
+
+  <label for="product">選擇產品：</label>
+  <select id="product">
+    <option value="275">羊珞素®生肌蜜 - $275</option>
+    <option value="275">羊珞素全能潔顏露 - $275</option>
+    <option value="275">羊珞素全能化妝水 - $275</option>
+    <option value="485">羊珞素全能精華液 - $485</option>
+    <option value="485">羊珞素全能奇蹟霜 - $485</option>
+    <option value="485">羊珞素全能奇蹟霜(乾肌特潤) - $485</option>
+    <option value="275">羊珞素全能熨斗眼霜 - $275</option>
+  </select>
+
+  <label for="quantity">數量：</label>
+  <input type="number" id="quantity" value="1" min="1">
+
+  <button onclick="calculateSubtotal()">計算小計</button>
+
+  <div class="summary" id="subtotal">小計：$0</div>
+
+  <script>
+    function calculateSubtotal() {
+      const price = parseInt(document.getElementById("product").value);
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const subtotal = price * quantity;
+      document.getElementById("subtotal").innerText = `小計：$${subtotal}`;
+    }
+  </script>
+</body>
+</html>
